@@ -190,6 +190,31 @@
   .credit a{color:#9aa3b5;text-decoration:none;}
   .credit a:hover{text-decoration:underline;}
   .credit-logo{height:26px;width:auto;vertical-align:-6px;margin-right:8px;}
+  /* ---------- countdown ---------- */
+  .countdown{
+    font-family:Oswald,"Arial Narrow",Arial,sans-serif;font-size:20px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--gold);margin:14px 0 0;
+  }
+
+  /* ---------- details actions ---------- */
+  .details-actions{margin-top:28px;text-align:center;}
+  .details-actions .btn{padding:14px 34px;font-size:15px;}
+
+  /* ---------- FAQ ---------- */
+  .faq{background:var(--cream);}
+  .faq h2{font-size:34px;margin-bottom:8px;text-transform:uppercase;letter-spacing:.04em;}
+  .faq details{
+    background:#fff;border:1px solid var(--line);margin-top:12px;padding:0;
+  }
+  .faq summary{
+    font-family:Oswald,"Arial Narrow",Arial,sans-serif;font-size:18px;font-weight:600;
+    padding:18px 22px;cursor:pointer;list-style:none;
+  }
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary::after{content:"+";float:right;color:var(--red);font-size:22px;line-height:1;}
+  .faq details[open] summary::after{content:"\2013";}
+  .faq details p{padding:0 22px 20px;color:var(--muted);}
+  .faq details p a{color:var(--red);}
 </style>
 </head>
 <body>
@@ -213,6 +238,7 @@
     <h1>Happy Hour with Congressman Randy Fine</h1>
     <p class="hero-meta">Thursday, November 12<span class="dot">|</span>5:30 &ndash; 7:30 PM</p>
     <p class="hero-venue">The Boles Lodge &middot; West Run Ranch &middot; East Palatka, Florida</p>
+    <p class="countdown" id="countdown" aria-live="polite"></p>
     <div class="hero-cta">
       <a class="btn btn-red" href="https://secure.winred.com/randy-fine-for-congress/donate">Get Tickets</a>
       <a class="btn-ghost" href="https://secure.winred.com/randy-fine-for-congress/donate">Can&rsquo;t make it? Contribute &rarr;</a>
@@ -240,6 +266,9 @@
           <small>750 State Road 207<br>East Palatka, FL 32131</small>
         </p>
       </div>
+    </div>
+    <div class="details-actions">
+      <button class="btn btn-red" id="add-calendar" type="button">Add to Calendar</button>
     </div>
   </div>
 </section>
@@ -322,6 +351,37 @@
   </div>
 </section>
 
+<section class="faq">
+  <div class="wrap">
+    <p class="kicker">Good to know</p>
+    <h2>Event questions</h2>
+    <details>
+      <summary>How do tickets work?</summary>
+      <p>Reserve through the campaign&rsquo;s donation page using the Get Tickets button above. Tickets are for individuals only &mdash; personal checks are welcome. Questions? Contact <a href="mailto:elizabeth@sureshot44.com">Elizabeth Banks</a>.</p>
+    </details>
+    <details>
+      <summary>What&rsquo;s the schedule for the evening?</summary>
+      <p>The VIP / Cohost reception for $1,000+ donors runs 5:30 &ndash; 6:00 PM, followed by the general happy hour from 6:00 &ndash; 7:30 PM.</p>
+    </details>
+    <details>
+      <summary>What should I wear?</summary>
+      <p>Ranch casual. The evening is held at the open-air Boles Lodge pavilion &mdash; boots are welcome, and a light layer is smart for a November night in Florida.</p>
+    </details>
+    <details>
+      <summary>Can I bring a guest?</summary>
+      <p>Yes &mdash; every guest needs their own ticket, as tickets are sold to individuals only.</p>
+    </details>
+    <details>
+      <summary>Where do I park?</summary>
+      <p>On-site parking is available at West Run Ranch &mdash; follow the signs to the Boles Lodge after you turn in at 750 State Road 207.</p>
+    </details>
+    <details>
+      <summary>Is food served?</summary>
+      <p>Heavy charcuterie and hors d&rsquo;oeuvres throughout the evening, with a bourbon and wine tasting planned.</p>
+    </details>
+  </div>
+</section>
+
 <section class="final">
   <div class="wrap">
     <p class="kicker on-dark">November 12 &middot; The Boles Lodge</p>
@@ -347,6 +407,76 @@
     <p class="credit">Page built by <img class="credit-logo" src="data:image/png;base64,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" alt="TechPartner logo"> <a href="https://www.techpartner.base44.app">TechPartner Consulting</a></p>
   </div>
 </footer>
+<script>
+(function () {
+  "use strict";
+
+  /* --- countdown to Nov 12, 2026, 5:30 PM (event end 7:30 PM) --- */
+  var START = new Date(2026, 10, 12, 17, 30, 0);
+  var END = new Date(2026, 10, 12, 19, 30, 0);
+  var cd = document.getElementById("countdown");
+
+  function plural(n, word) { return n + " " + word + (n === 1 ? "" : "s"); }
+
+  function tick() {
+    if (!cd) return;
+    var now = new Date();
+    if (now >= END) {
+      cd.textContent = "The event has passed \u2014 thank you for coming.";
+      return;
+    }
+    if (now >= START) {
+      cd.textContent = "The happy hour is on \u2014 see you at the ranch.";
+      return;
+    }
+    var ms = START - now;
+    var days = Math.floor(ms / 86400000);
+    var hours = Math.floor((ms % 86400000) / 3600000);
+    var mins = Math.floor((ms % 3600000) / 60000);
+    cd.textContent = days > 0
+      ? plural(days, "day") + " until the ranch"
+      : plural(hours, "hour") + " " + plural(mins, "minute") + " until the ranch";
+  }
+  tick();
+  setInterval(tick, 60000);
+
+  /* --- add to calendar (.ics download) --- */
+  function pad(n) { return (n < 10 ? "0" : "") + n; }
+  function icsStamp(d) {
+    return d.getFullYear() + pad(d.getMonth() + 1) + pad(d.getDate()) + "T" +
+           pad(d.getHours()) + pad(d.getMinutes()) + "00";
+  }
+
+  document.getElementById("add-calendar").addEventListener("click", function () {
+    var ics = [
+      "BEGIN:VCALENDAR",
+      "VERSION:2.0",
+      "PRODID:-//West Run Ranch//Randy Fine Fundraiser//EN",
+      "BEGIN:VEVENT",
+      "UID:randy-fine-nov12-2026@fineattheranch.com",
+      "DTSTAMP:" + icsStamp(new Date()),
+      "DTSTART:" + icsStamp(START),
+      "DTEND:" + icsStamp(END),
+      "SUMMARY:Happy Hour with Congressman Randy Fine",
+      "DESCRIPTION:Evening reception fundraiser. VIP/Cohost reception 5:30-6:00 PM ($1,000+ donors)\\, general happy hour 6:00-7:30 PM.",
+      "LOCATION:The Boles Lodge\\, West Run Ranch\\, 750 State Road 207\\, East Palatka\\, FL 32131",
+      "URL:https://fineattheranch.com",
+      "END:VEVENT",
+      "END:VCALENDAR"
+    ].join("\r\n");
+    var blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "randy-fine-fundraiser-nov12.ics";
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function () {
+      URL.revokeObjectURL(a.href);
+      a.remove();
+    }, 1000);
+  });
+})();
+</script>
 
 </body>
 </html>
