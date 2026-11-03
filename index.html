@@ -223,8 +223,10 @@
   .thanks-star::before,.thanks-star::after{content:"";height:2px;width:110px;background:var(--gold);}
   .thanks-names{font-family:Georgia,"Times New Roman",serif;font-size:clamp(17px,2.2vw,22px);color:var(--navy);margin:6px 0;}
   .thanks-names span{white-space:nowrap;}
+  .thanks-framed{display:flex;align-items:center;justify-content:center;gap:16px;}
+  .thanks-framed::before,.thanks-framed::after{content:"";height:2px;width:56px;background:var(--gold);flex-shrink:0;}
   .thanks-names i{font-style:normal;color:var(--gold);margin:0 14px;}
-  @media(max-width:600px){.thanks{padding:12px 0 30px;}.thanks-cohosts .thanks-names{font-size:clamp(14px,4.3vw,16px);}.thanks-eyebrow{gap:10px;font-size:16px;letter-spacing:.1em;}.thanks-eyebrow::before,.thanks-eyebrow::after{width:40px;}.thanks-star::before,.thanks-star::after{width:64px;}.thanks-names i{margin:0 8px;}}
+  @media(max-width:600px){.thanks{padding:12px 0 30px;}.thanks-cohost{font-size:clamp(14px,4.3vw,16px);}.thanks-framed::before,.thanks-framed::after{width:40px;}.thanks-eyebrow{gap:10px;font-size:16px;letter-spacing:.1em;}.thanks-eyebrow::before,.thanks-eyebrow::after{width:40px;}.thanks-star::before,.thanks-star::after{width:64px;}.thanks-names i{margin:0 8px;}}
 
   /* ---------- FAQ ---------- */
   .faq{background:var(--cream);}
@@ -339,7 +341,7 @@
     <h2 class="thanks-title">Chairs and Cohosts</h2>
     <p class="thanks-star" aria-hidden="true">&#9733;</p>
     <p class="thanks-names"><span>Ed Haddock <i>|</i></span> <span>Bill Heavener <i>|</i></span> <span>Jon Phelps</span></p>
-    <div class="thanks-cohosts"><p class="thanks-names"><span>TC Wolfe <i>|</i></span> <span>Hon. Jack Kingston</span></p><p class="thanks-names"><span>Garry &amp; Isis Jones</span></p></div>
+    <p class="thanks-names thanks-cohost thanks-framed">Garry &amp; Isis Jones</p><p class="thanks-names thanks-cohost"><span>TC Wolfe <i>|</i></span> <span>Hon. Jack Kingston</span></p>
   </div>
 </section>
 
