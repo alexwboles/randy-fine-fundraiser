@@ -216,6 +216,9 @@
   /* ---------- chairs & cohosts thanks ---------- */
   .tiers{padding-bottom:24px;}
   .thanks{background:#fff;padding:16px 0 40px;text-align:center;}
+  .thanks-cohosts .thanks-names{display:inline;}
+  .thanks-sep{display:inline;}
+  .thanks-sep i{font-style:normal;color:var(--gold);margin:0 14px;}
   .thanks-eyebrow{display:flex;align-items:center;justify-content:center;gap:18px;font-family:Oswald,"Arial Narrow",Arial,sans-serif;font-size:clamp(17px,2.4vw,24px);font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);margin:0;}
   .thanks-eyebrow::before,.thanks-eyebrow::after{content:"";height:2px;width:min(140px,12vw);background:var(--gold);flex-shrink:0;}
   .thanks-title{font-family:Oswald,"Arial Narrow",Arial,sans-serif;font-size:clamp(20px,3vw,30px);font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:6px 0 0;}
@@ -224,7 +227,7 @@
   .thanks-names{font-family:Georgia,"Times New Roman",serif;font-size:clamp(17px,2.2vw,22px);color:var(--navy);margin:6px 0;}
   .thanks-names span{white-space:nowrap;}
   .thanks-names i{font-style:normal;color:var(--gold);margin:0 14px;}
-  @media(max-width:600px){.thanks{padding:12px 0 30px;}.thanks-eyebrow{gap:10px;font-size:16px;letter-spacing:.1em;}.thanks-eyebrow::before,.thanks-eyebrow::after{width:40px;}.thanks-star::before,.thanks-star::after{width:64px;}.thanks-names i{margin:0 8px;}}
+  @media(max-width:600px){.thanks{padding:12px 0 30px;}.thanks-cohosts .thanks-names{display:block;font-size:clamp(14px,4.3vw,16px);}.thanks-sep{display:none;}.thanks-eyebrow{gap:10px;font-size:16px;letter-spacing:.1em;}.thanks-eyebrow::before,.thanks-eyebrow::after{width:40px;}.thanks-star::before,.thanks-star::after{width:64px;}.thanks-names i{margin:0 8px;}}
 
   /* ---------- FAQ ---------- */
   .faq{background:var(--cream);}
@@ -339,7 +342,7 @@
     <h2 class="thanks-title">Chairs and Cohosts</h2>
     <p class="thanks-star" aria-hidden="true">&#9733;</p>
     <p class="thanks-names"><span>Ed Haddock <i>|</i></span> <span>Bill Heavener <i>|</i></span> <span>Jon Phelps</span></p>
-    <p class="thanks-names"><span>TC Wolfe <i>|</i></span> <span>Hon. Jack Kingston <i>|</i></span> <span>Garry &amp; Isis Jones</span></p>
+    <div class="thanks-cohosts"><p class="thanks-names"><span>TC Wolfe <i>|</i></span> <span>Hon. Jack Kingston</span></p><span class="thanks-sep" aria-hidden="true"><i>|</i></span><p class="thanks-names"><span>Garry &amp; Isis Jones</span></p></div>
   </div>
 </section>
 
